@@ -111,7 +111,6 @@ public class RedfinConductorServerWorkflowStatusListenerModule extends AbstractM
      * server.
      */
     static class Binner {
-        private static final Logger LOGGER = LoggerFactory.getLogger(Binner.class);
         private final BinConfig config;
 
         Binner(BinConfig config) {
