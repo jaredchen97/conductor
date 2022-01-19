@@ -123,12 +123,12 @@ public class RedfinConductorServerWorkflowStatusListenerModule extends AbstractM
 
             // Need to keep a lid on cardinality.
             if ((config.high - config.low) / config.step > LatencyBinConstants.MAX_BINS) {
-                LOGGER.error("too many bins");
+                LOGGER.warn("too many bins");
                 return bins;
             }
 
             if ((config.high - config.low) % config.step != 0) {
-                LOGGER.error("unequal bin sizes");
+                LOGGER.warn("unequal bin sizes");
                 return bins;
             }
 
