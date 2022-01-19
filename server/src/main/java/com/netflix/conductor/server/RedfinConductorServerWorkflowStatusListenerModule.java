@@ -121,17 +121,6 @@ public class RedfinConductorServerWorkflowStatusListenerModule extends AbstractM
         Set<String> calculateBins(long value) {
             Set<String> bins = new HashSet<>();
 
-            // Need to keep a lid on cardinality.
-            if ((config.high - config.low) / config.step > LatencyBinConstants.MAX_BINS) {
-                LOGGER.warn("too many bins");
-                return bins;
-            }
-
-            if ((config.high - config.low) % config.step != 0) {
-                LOGGER.warn("unequal bin sizes");
-                return bins;
-            }
-
             if (value > config.high) {
                 bins.add("cumulative.hi");
                 return bins;
